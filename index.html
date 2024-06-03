@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis</title>
+</head>
+<body>
+  <!-- Title -->
+  <h1>Sentiment Analysis</h1>
+
+  <!-- Form for entering URL -->
+  <form id="urlForm">
+    <label for="url">Enter URL:</label><br>
+    <input type="text" id="url" name="url" placeholder="https://www.example.com"><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Container for displaying sentiment analysis results -->
+  <div id="result"></div>
+
+  <!-- JavaScript code for fetching data and handling form submission -->
+  <script>
+    // Add an event listener for form submission
+    document.getElementById('urlForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      
+      // Get the URL entered by the user
+      const url = document.getElementById('url').value;
+      
+      // Send a GET request to the backend server for sentiment analysis
+      const response = await fetch('/analyze?url=' + encodeURIComponent(url));
+      
+      // Parse the JSON response
+      const data = await response.json();
+      
+      // Display the sentiment analysis results on the page
+      document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
