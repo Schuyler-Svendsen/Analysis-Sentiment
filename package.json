@@ -1,18 +1,14 @@
 {
-  "name": "analysis",
+  "name": "sentiment-analysis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple sentiment analysis backend server",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "puppeteer": "^15.5.0",
     "sentiment": "^5.0.2"
   }
 }
-ChatGPT
-ChatGPT
